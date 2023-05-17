@@ -13,5 +13,12 @@ $count = mysqli_num_rows($result);
 if ($count == 1) {
     echo json_encode("Success");
 } else {
-    echo json_encode("Error");
+    $sql2 = "SELECT * FROM teacher WHERE teacher_id = '".$email."' AND teacher_pass = '".$password."' ;";
+    $result2 = mysqli_query($con, $sql2);
+    $count2 = mysqli_num_rows($result2);
+    if ($count2 == 1) {
+        echo json_encode("Success");
+    } else {
+        echo json_encode("Error");
+    }
 }
